@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem;
 
 public class MovementPlayer : MonoBehaviour
 {
@@ -9,16 +10,34 @@ public class MovementPlayer : MonoBehaviour
     private Camera _cam;
     private NavMeshAgent _agent;
 
+    private CustomInput _customInput;
+
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
+
+        _customInput = new CustomInput();
+    }
+ 
+
+    private void OnEnable()
+    {
+        _customInput.Enable();
+        _customInput.PlayerActionMap.Movement.performed += OnMovementPerformed;
     }
 
-    void Update()
+    private void OnDisable()
     {
-        if (Input.GetMouseButtonDown(0))
+        _customInput.Disable();
+        _customInput.PlayerActionMap.Movement.performed -= OnMovementPerformed;
+    }
+
+    private void OnMovementPerformed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
-            Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
+            Vector2 mousePos = Mouse.current.position.ReadValue();
+            Ray ray = Camera.main.ScreenPointToRay(mousePos);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
