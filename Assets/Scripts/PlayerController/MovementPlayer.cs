@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,6 +33,19 @@ public class MovementPlayer : MonoBehaviour
         _customInput.PlayerActionMap.Movement.performed -= OnMovementPerformed;
     }
 
+    private void Update()
+    {
+        UpdateAnimator();
+    }
+
+    private void UpdateAnimator()
+    {
+        Vector3 velocity = GetComponent<NavMeshAgent>().velocity;
+        Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+        float speed = localVelocity.z;
+        GetComponent<Animator>().SetFloat("ForwardSpeed", speed);
+    }
+    
     private void OnMovementPerformed(InputAction.CallbackContext context)
     {
         if (context.performed)
