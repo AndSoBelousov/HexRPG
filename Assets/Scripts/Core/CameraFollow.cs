@@ -41,20 +41,20 @@ namespace HEXRPG.Core
         {
             if (pos.x < mouseScrollZone)
             {
-                transform.Translate(Vector3.left * mouseScrollSpeed * Time.deltaTime);
+                transform.Translate(Vector3.right * mouseScrollSpeed * Time.deltaTime);
             }
             else if (pos.x > screenWidth - mouseScrollZone)
             {
-                transform.Translate(Vector3.right * mouseScrollSpeed * Time.deltaTime);
+                transform.Translate(Vector3.left * mouseScrollSpeed * Time.deltaTime);
             }
 
             if (pos.y < mouseScrollZone)
             {
-                transform.Translate(Vector3.back * mouseScrollSpeed * Time.deltaTime);
-            }
-            else if (pos.y < screenHeight - mouseScrollZone)
-            {
                 transform.Translate(Vector3.forward * mouseScrollSpeed * Time.deltaTime);
+            }
+            else if (pos.y > screenHeight - mouseScrollZone)
+            {
+                transform.Translate(Vector3.back * mouseScrollSpeed * Time.deltaTime);
             }
         }
     }
