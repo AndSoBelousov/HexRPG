@@ -842,6 +842,24 @@ MonoBehaviour:
   _smoothing: 2
   mouseScrollSpeed: 15
   mouseScrollZone: 150
+--- !u!1 &358092102 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2170679559826066151, guid: 02a9c5e76c7cc5144b9141c47190ef54,
+    type: 3}
+  m_PrefabInstance: {fileID: 3897633886931210888}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &358092107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358092102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5e4ef60f5adda4fbf035686ec4a6b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &405097615
 GameObject:
   m_ObjectHideFlags: 0
@@ -3132,7 +3150,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2170679559826066151, guid: 02a9c5e76c7cc5144b9141c47190ef54,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 358092107}
   m_SourcePrefab: {fileID: 100100000, guid: 02a9c5e76c7cc5144b9141c47190ef54, type: 3}
 --- !u!1001 &9214915920190359556
 PrefabInstance:

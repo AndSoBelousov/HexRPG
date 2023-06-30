@@ -31,13 +31,17 @@ namespace HEXRPG.Movement
             _customInput.PlayerActionMap.Movement.performed -= OnMovementPerformed;
         }
 
+        private void HoldLeftMouseButton()
+        { 
+            if (Input.GetMouseButton(0)) 
+            { 
+                MoveToCursor(); 
+            }
+        }
+        
         private void Update()
         {
-            if (Input.GetMouseButton(0))
-            {
-                MoveToCursor();
-            }
-
+            HoldLeftMouseButton();
             UpdateAnimator();
         }
 

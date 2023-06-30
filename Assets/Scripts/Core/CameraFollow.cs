@@ -4,17 +4,17 @@ namespace HEXRPG.Core
 {
     public class CameraFollow : MonoBehaviour
     {
-        [Tooltip("Объект персонажа")] [SerializeField]
-        private Transform _player;
+        [Tooltip("Объект персонажа")] 
+        [SerializeField] private Transform _player;
 
-        [Tooltip("Коэффициент сглаживания движения камеры")] [SerializeField, Range(1, 10)]
-        public float _smoothing = 2.5f;
+        [Tooltip("Коэффициент сглаживания движения камеры")] 
+        [SerializeField, Range(1, 10)] public float _smoothing = 2.5f;
 
-        [Tooltip("Скорость скролла камеры при наведении мышки на край экрана ")] [SerializeField]
-        private float mouseScrollSpeed = 20f;
+        [Tooltip("Скорость скролла камеры при наведении мышки на край экрана ")] 
+        [SerializeField] private float mouseScrollSpeed = 20f;
 
-        [Tooltip("Зона, в которой будет срабатывать скролл мышки")] [SerializeField]
-        private float mouseScrollZone = 30f;
+        [Tooltip("Зона, в которой будет срабатывать скролл мышки")] 
+        [SerializeField] private float mouseScrollZone = 30f;
 
         private float screenWidth; // ширина экрана
         private float screenHeight; // высота экрана
