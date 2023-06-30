@@ -7,11 +7,11 @@ namespace HEXRPG.Control
     {
         [Tooltip("Полоска хп")] public Image healthBarFill;
 
-        [Tooltip("Максимальное количество ХП")] [SerializeField]
-        private float _maxHealth = 100f;
+        [Tooltip("Максимальное количество ХП")] 
+        [SerializeField] private float _maxHealth = 100f;
 
-        [Tooltip("Количество ХП в данный момент")] [SerializeField]
-        private float _currentHealth;
+        [Tooltip("Количество ХП в данный момент")] 
+        [SerializeField] private float _currentHealth;
 
         private float MaxHealth
         {
