@@ -1,11 +1,10 @@
-using HEXRPG.Combat;
 using HEXRPG.Core;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace HEXRPG.Movement
 {
-    public class PlayerMove : MonoBehaviour
+    public class PlayerMove : MonoBehaviour, IAction
     {
         private NavMeshAgent _agent;
 
@@ -22,7 +21,6 @@ namespace HEXRPG.Movement
         public void StartMoveTo(Vector3 destination)
         {
             MoveTo(destination); //перемещение к заданной точке
-            GetComponent<PlayerCombat>().CancelFight();
             GetComponent<ActionManager>().StartAction(this);
         }
         
@@ -32,7 +30,7 @@ namespace HEXRPG.Movement
             _agent.isStopped = false;
         }
         
-        public void StopMove()
+        public void Cancel()
         {
             _agent.isStopped = true;
         }

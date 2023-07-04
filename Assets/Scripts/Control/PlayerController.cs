@@ -19,8 +19,11 @@ namespace HEXRPG.Control
             foreach (RaycastHit hit in hits)
             {
                 Target target = hit.transform.GetComponent<Target>();
-                
-                if (target == null) continue; //пропуск объектов без компонента target
+
+                if (!GetComponent<PlayerCombat>().CanAttack(target))
+                {
+                    continue;
+                }
                 
                 if (Input.GetMouseButtonDown(0))//атака на лкм
                 {

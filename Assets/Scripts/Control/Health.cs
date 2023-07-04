@@ -37,12 +37,12 @@ namespace HEXRPG.Control
         }
 
         //Получение урона (уменьшение полоски хп)
-        protected void TakeDamage()
+        public void TakeDamage(float damage)
         {
         }
 
         //Обновление полоски хп
-        protected void UpdateHealthBar()
+        private void UpdateHealthBar()
         {
             float healthBar = CurrentHealth / MaxHealth;
             healthBarFill.fillAmount = healthBar;

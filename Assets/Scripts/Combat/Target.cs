@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace HEXRPG.Combat
 {
+    [RequireComponent(typeof(HealthEnemy))]
     public class Target : MonoBehaviour
     {
         

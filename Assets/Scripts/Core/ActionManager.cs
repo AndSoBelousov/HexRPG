@@ -6,14 +6,14 @@ namespace HEXRPG.Core
 {
     public class ActionManager : MonoBehaviour
     {
-        private MonoBehaviour currentAction;
+        private IAction currentAction;
         
-        public void StartAction(MonoBehaviour action)
+        public void StartAction(IAction action)
         {
             if (currentAction == action) return;
             if (currentAction != null)
             {
-                Debug.Log("Cancelling" + currentAction);
+                currentAction.Cancel();
             }
             currentAction = action;
         }
