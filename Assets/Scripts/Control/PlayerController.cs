@@ -1,4 +1,3 @@
-using System;
 using HEXRPG.Combat;
 using HEXRPG.Movement;
 using UnityEngine;
@@ -9,31 +8,45 @@ namespace HEXRPG.Control
     {
         private void Update()
         {
-            CombatInteraction();
-            MovementInteraction();
+            if(CheckCombatInteraction()) return;
+            if(CheckMovementInteraction()) return;
         }
 
-        private void CombatInteraction()
+        private bool CheckCombatInteraction()
         {
             RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
-
+            
             foreach (RaycastHit hit in hits)
             {
-                Target target = hit.rigidbody.GetComponent<Target>();
-                if (target == null) continue;
-
-                if (Input.GetMouseButtonDown(0))
+                Target target = hit.transform.GetComponent<Target>();
+                
+                if (target == null) continue; //пропуск объектов без компонента target
+                
+                if (Input.GetMouseButtonDown(0))//атака на лкм
                 {
                     GetComponent<PlayerCombat>().Attack(target);
                 }
+                return true; //прерываем цикл если найден наш таргет
             }
+            return false; //false если не найден таргет для взаимодействия и ищем дальше)
         }
 
-        private void MovementInteraction()
+        private bool CheckMovementInteraction()
         {
-            
+            RaycastHit hit;
+            bool hasHit = Physics.Raycast(GetMouseRay(), out hit);
+            if (hasHit)
+            {
+                if (Input.GetMouseButton(0))
+                {
+                    GetComponent<PlayerMove>().StartMoveTo(hit.point);
+                }
+                return true; //если было взаимодействие с перемещением
+            }
+            return false; //если не было взаимодействия с перемещением
         }
-
+        
+        //получаем луч по текущему положению мыши
         private static Ray GetMouseRay()
         {
             return Camera.main.ScreenPointToRay(Input.mousePosition);
