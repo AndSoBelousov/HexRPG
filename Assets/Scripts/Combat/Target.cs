@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+using HEXRPG.Core;
 using UnityEngine;
 
 namespace HEXRPG.Combat
 {
-    [RequireComponent(typeof(HealthEnemy))]
+    [RequireComponent(typeof(Health))]
     public class Target : MonoBehaviour
     {
         

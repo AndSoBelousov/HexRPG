@@ -4170,15 +4170,15 @@ GameObject:
   m_Component:
   - component: {fileID: 821769814217923861}
   - component: {fileID: 6311944488160651914}
-  - component: {fileID: 4719839529403755564}
-  - component: {fileID: 8775791074850742960}
   - component: {fileID: 1564757565226846476}
   - component: {fileID: 2687428745069296817}
   - component: {fileID: 1977289275174341999}
   - component: {fileID: 5220355037588222763}
+  - component: {fileID: 1867063477768158256}
+  - component: {fileID: 5705230023834719251}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4210,7 +4210,7 @@ Transform:
   - {fileID: 3560217354178698187}
   - {fileID: 4205474837517655702}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6311944488160651914
 Animator:
@@ -4233,33 +4233,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4719839529403755564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8347457781313036065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92a67e4bb99a9b2408a92da1c9ef28d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8775791074850742960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8347457781313036065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04bca0a6e63261049a60bf496175e0fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBarFill: {fileID: 0}
-  _maxHealth: 100
-  _currentHealth: 0
 --- !u!195 &1564757565226846476
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4307,7 +4280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponRange: 3
-  _weaponDamage: 5
+  _weaponDamage: 3
   _timeBetweenAttacks: 1
 --- !u!114 &5220355037588222763
 MonoBehaviour:
@@ -4321,6 +4294,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cbb6681e111a284da7386df5dbd985f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1867063477768158256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8347457781313036065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a67e4bb99a9b2408a92da1c9ef28d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5705230023834719251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8347457781313036065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 016b4164907d89940a2840f87e771fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
 --- !u!1 &8552121560158902600
 GameObject:
   m_ObjectHideFlags: 0

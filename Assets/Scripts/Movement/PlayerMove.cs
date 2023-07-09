@@ -7,15 +7,18 @@ namespace HEXRPG.Movement
     public class PlayerMove : MonoBehaviour, IAction
     {
         private NavMeshAgent _agent;
+        private Health _health;
 
         private void Awake()
         {
             _agent = GetComponent<NavMeshAgent>();
+            _health = GetComponent<Health>();
         }
         
         private void Update()
         {
             UpdateAnimator();
+            _agent.enabled = !_health.IsDead();
         }
 
         public void StartMoveTo(Vector3 destination)

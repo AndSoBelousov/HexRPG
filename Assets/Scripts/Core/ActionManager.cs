@@ -17,5 +17,10 @@ namespace HEXRPG.Core
             }
             currentAction = action;
         }
+
+        public void CancelCurrentAction()
+        {
+            StartAction(null);
+        }
     }
 }

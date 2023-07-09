@@ -1,5 +1,3 @@
-using System;
-using HEXRPG.Control;
 using HEXRPG.Core;
 using UnityEngine;
 using HEXRPG.Movement;
@@ -13,9 +11,9 @@ namespace HEXRPG.Combat
         [SerializeField] private float _weaponDamage = 5f;
         [SerializeField] private float _timeBetweenAttacks = 1f;
         
-        private HealthEnemy _enemyTarget; //противник
+        private Health _enemyTarget; //противник
         private PlayerMove _playerMove; //компонент перемещения игрока
-        private float _timeSinceLastAttack = 0;
+        private float _timeSinceLastAttack = Mathf.Infinity;
 
         private void Awake()
         {
@@ -29,7 +27,7 @@ namespace HEXRPG.Combat
             if (_enemyTarget == null) return; //выход из метода при отсутствии противника
             if (_enemyTarget.IsDead()) return;
             
-            if (_enemyTarget != null && !GetIsInRange())
+            if (!GetIsInRange())
             {
                 _playerMove.MoveTo(_enemyTarget.transform.position); //движение в сторону противника
             }
@@ -42,16 +40,25 @@ namespace HEXRPG.Combat
 
         private void AttackManager()
         {
+            transform.LookAt(_enemyTarget.transform);
             if (_timeSinceLastAttack > _timeBetweenAttacks)
             {
-                GetComponent<Animator>().SetTrigger("Attack");//Trigger HitAnimationEvent()
                 _timeSinceLastAttack = 0;
+                TriggerAttack();
             }
         }
-        
+
+        //HitAnimationEvent trigger
+        private void TriggerAttack()
+        {
+            GetComponent<Animator>().ResetTrigger("StopAttack");
+            GetComponent<Animator>().SetTrigger("Attack");
+        }
+
         //AnimationEvent
         void HitAnimationEvent()
         {
+            if (_enemyTarget == null) return;
             _enemyTarget.TakeDamage(_weaponDamage);
         }
         
@@ -61,31 +68,34 @@ namespace HEXRPG.Combat
             return Vector3.Distance(transform.position, _enemyTarget.transform.position) < _weaponRange;
         }
 
-        public bool CanAttack(Target target)
+        public bool CanAttack(GameObject target)
         {
             if (target == null)
             {
                 return false;
             }
-            HealthEnemy targetToTest = target.GetComponent<HealthEnemy>();
+            Health targetToTest = target.GetComponent<Health>();
             return targetToTest != null && !targetToTest.IsDead();
         }
 
         //задаём цель для атаки
-        public void Attack(Target target)
+        public void Attack(GameObject target)
         {
-            transform.LookAt(target.transform);
-            _enemyTarget = target.GetComponent<HealthEnemy>();
+            _enemyTarget = target.GetComponent<Health>();
             GetComponent<ActionManager>().StartAction(this);
         }
 
         //сброс цели
         public void Cancel()
         {
+            StopAttack();
             _enemyTarget = null;
-            GetComponent<Animator>().SetTrigger("StopAttack");
         }
 
-
+        private void StopAttack()
+        {
+            GetComponent<Animator>().ResetTrigger("Attack");
+            GetComponent<Animator>().SetTrigger("StopAttack");
+        }
     }
 }
