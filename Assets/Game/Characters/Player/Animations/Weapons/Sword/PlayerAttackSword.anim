@@ -54309,6 +54309,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0.56666666
+    functionName: Kick_Sound_Play
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: 3b762ff359d2d2247b10fa651555c704,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.6333333
     functionName: HitAnimationEvent
     data: 
