@@ -24689,7 +24689,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_Extents: {x: 1.5, y: 1, z: 1}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
@@ -32723,7 +32723,7 @@ PrefabInstance:
     - target: {fileID: 8780608908433096866, guid: bab8d89af7262f14e8937409b7f8e2fa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 67.91
+      value: 70.07
       objectReference: {fileID: 0}
     - target: {fileID: 8780608908433096866, guid: bab8d89af7262f14e8937409b7f8e2fa,
         type: 3}
@@ -32733,7 +32733,7 @@ PrefabInstance:
     - target: {fileID: 8780608908433096866, guid: bab8d89af7262f14e8937409b7f8e2fa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -122.07
+      value: -119.09
       objectReference: {fileID: 0}
     - target: {fileID: 8780608908433096866, guid: bab8d89af7262f14e8937409b7f8e2fa,
         type: 3}
@@ -33337,6 +33337,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5557367262567304149, guid: 0eb852fd69273854e9f7f1fc99f03fea,
+        type: 3}
+      propertyPath: Boss_Death_SoundsAR.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5557367262567304149, guid: 0eb852fd69273854e9f7f1fc99f03fea,
+        type: 3}
+      propertyPath: Boss_Death_SoundsAR.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: ad8b76081b34b674bb85ec698dd5b39b, type: 3}
     - target: {fileID: 5705230023834719251, guid: 0eb852fd69273854e9f7f1fc99f03fea,
         type: 3}
       propertyPath: fill

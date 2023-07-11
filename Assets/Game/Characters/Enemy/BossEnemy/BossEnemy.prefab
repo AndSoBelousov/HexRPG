@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 2790218682395323128}
   - component: {fileID: 75245383478963512}
   - component: {fileID: 8165059153119001074}
+  - component: {fileID: 6853504548891861587}
   - component: {fileID: 5512196110560840754}
   m_Layer: 0
   m_Name: BossEnemy
@@ -449,6 +450,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92a67e4bb99a9b2408a92da1c9ef28d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6853504548891861587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118959706904799526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b762ff359d2d2247b10fa651555c704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepSounds_AR: []
+  Player_Death_SoundsAR: []
+  Player_Kick_SoundsAR: []
+  Skeleton_Kick_SoundsAR: []
+  Skeleton_Death_SoundsAR: []
+  MidEn_Kick_SoundsAR: []
+  MidEn_Death_SoundsAR: []
+  Boss_Kick_SoundsAR:
+  - {fileID: 8300000, guid: 9b90f80430c732849b8a805d1f7553ee, type: 3}
+  - {fileID: 8300000, guid: e3503ef08a4d52b44876cd07f264c426, type: 3}
+  Boss_Death_SoundsAR:
+  - {fileID: 8300000, guid: ad8b76081b34b674bb85ec698dd5b39b, type: 3}
 --- !u!82 &5512196110560840754
 AudioSource:
   m_ObjectHideFlags: 0

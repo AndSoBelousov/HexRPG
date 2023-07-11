@@ -15,7 +15,6 @@ namespace HEXRPG.GUI
         private void WinMenu()
         {
             _winPanel.SetActive(true);
-            Time.timeScale = 0f;
         }
         
         public void Restart()
