@@ -1,15 +1,18 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using HEXRPG.GUI;
 
 namespace HEXRPG.Core
 {
     public class Health : MonoBehaviour
     {
         [SerializeField] private float _maxHealth = 100f;
+        
         public Image fill;
             
         bool isDead = false;
-        
+
         public bool IsDead()
         {
             return isDead;
@@ -31,11 +34,29 @@ namespace HEXRPG.Core
             fill.fillAmount = hpBar;
         }
 
+        public void Heal()
+        {
+            _maxHealth += 100; //Увеличиваем текущее здоровье на заданное значение
+            UpdateHealthBar();
+            if (_maxHealth > 100)
+            {
+                _maxHealth = 100; //Убеждаемся, что текущее здоровье не превышает максимальное значение
+            }
+        }
+        
         private void Death()
         {
             if (isDead) return;
             isDead = true;
-            GetComponent<Animator>().SetTrigger("Death");
+            if (CompareTag("Player"))
+            {
+                GetComponent<Animator>().SetTrigger("Death");
+                FindObjectOfType<RestartGame>().ShowGameOverMenu();
+            }
+            else
+            {
+                GetComponent<Animator>().SetTrigger("Death");
+            }
             GetComponent<ActionManager>().CancelCurrentAction();
         }
     }

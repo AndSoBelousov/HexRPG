@@ -35,7 +35,7 @@ namespace HEXRPG.Control
                     continue;
                 }
                 
-                if (Input.GetMouseButtonDown(0))//атака на лкм
+                if (Input.GetMouseButtonDown(1))//атака на лкм
                 {
                     GetComponent<PlayerCombat>().Attack(target.gameObject);
                 }

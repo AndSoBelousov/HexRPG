@@ -1,48 +1,52 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EscMenu : MonoBehaviour
+namespace HEXRPG.GUI
 {
-    public GameObject menuPanel;
-    private bool isPaused;
-
-    private void Update()
+    public class EscMenu : MonoBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        public GameObject menuPanel;
+        private bool isPaused;
+
+        // При нажатии Esc в игре откроется меню, при повторном нажатии закроется.
+        private void Update()
         {
-            if (isPaused)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
+                if (!isPaused)
+                {
+                    PauseGame();
+                }
+                else if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    if (isPaused)
+                    {
+                        ResumeGame();
+                    }
+                }
             }
         }
-    }
 
-    public void ToMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-    
-    private void PauseGame()
-    {
-        menuPanel.SetActive(true); // Показываем меню
-        Time.timeScale = 0f; // Замораживаем время в игре
-        isPaused = true;
-    }
+        public void ToMainMenu()
+        {
+            SceneManager.LoadScene("MainMenu");//загрузка сцены главного меню
+        }
 
-    public void ResumeGame()
-    {
-        menuPanel.SetActive(false); // Скрываем меню
-        Time.timeScale = 1f; // Возобновляем время в игре
-        isPaused = false;
-    }
+        private void PauseGame()
+        {
+            menuPanel.SetActive(true); //показываем меню
+            isPaused = true;
+        }
 
-    public void QuitGame()
-    {
-        Application.Quit();
+        public void ResumeGame()
+        {
+            menuPanel.SetActive(false); //скрываем меню
+            isPaused = false;
+        }
+
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
     }
 }
