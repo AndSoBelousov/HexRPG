@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 namespace HEXRPG.GUI
 {
-    public class RestartGame : MonoBehaviour
+    public class GameOverScript : MonoBehaviour
     {
         public GameObject _endGamePanel;
 

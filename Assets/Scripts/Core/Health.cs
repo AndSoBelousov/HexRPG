@@ -51,10 +51,15 @@ namespace HEXRPG.Core
             if (CompareTag("Player"))
             {
                 GetComponent<Animator>().SetTrigger("Death");
-                FindObjectOfType<RestartGame>().ShowGameOverMenu();
+                FindObjectOfType<GameOverScript>().ShowGameOverMenu();
             }
             else
             {
+                if (CompareTag("BossEnemy"))
+                {
+                    GetComponent<Animator>().SetTrigger("Death");
+                    FindObjectOfType<WinPanel>().ShowWinPanel();
+                }
                 GetComponent<Animator>().SetTrigger("Death");
             }
             GetComponent<ActionManager>().CancelCurrentAction();
